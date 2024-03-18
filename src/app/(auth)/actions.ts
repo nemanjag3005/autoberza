@@ -24,3 +24,16 @@
 //     };
 //   }
 // };
+// export const signIn = async (data: LoginInput) => {
+//   "use server";
+
+//   const { error } = await supabase.auth.signInWithPassword({
+//     email: data.email,
+//     password: data.password,
+//   });
+//   if (error) {
+//     return {
+//       error: error.message,
+//     };
+//   }
+// };
