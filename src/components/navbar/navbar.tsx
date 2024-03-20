@@ -26,7 +26,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(0);
   return (
     <div className="sticky top-0 w-full bg-white">
-      <div className="max-w-8xl z-10 mx-auto px-3  md:px-10 ">
+      <div className="z-10 mx-auto max-w-8xl px-3  md:px-10 ">
         <div className="    flex flex-col py-2  md:border-b ">
           <div className="flex items-center justify-between py-1">
             <div className="flex items-center">
@@ -36,7 +36,7 @@ const Navbar = () => {
                 </h1>
               </Link>
 
-              <NavigationMenu className="inter:block hidden">
+              <NavigationMenu className="hidden inter:block">
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger>Aukcije</NavigationMenuTrigger>
@@ -66,16 +66,16 @@ const Navbar = () => {
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              <button className="inter2:block bg-primary hidden whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-green-600/70 hover:text-zinc-950">
+              <button className="hidden whitespace-nowrap rounded-full bg-primary px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-green-600/70 hover:text-zinc-950 inter2:block">
                 Prodaj Auto
               </button>
-              <div className="inter3:block hidden px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950">
+              <div className="hidden px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950 inter3:block">
                 <Link href="/forum">Forum</Link>
               </div>
-              <div className="inter4:block hidden whitespace-nowrap px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950">
+              <div className="hidden whitespace-nowrap px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950 inter4:block">
                 <Link href="/sta-je">Šta je Auto Berza?</Link>
               </div>
-              <div className="inter5:block hidden whitespace-nowrap px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950">
+              <div className="hidden whitespace-nowrap px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950 inter5:block">
                 <Link href="/newsletter">Newsletter</Link>
               </div>
             </div>
@@ -96,10 +96,18 @@ const Navbar = () => {
               <Button onClick={() => setMenuOpen(1)} size="xs">
                 Prijavi Se
               </Button>
-              <Button size="icon" className="bg-transparent">
+              <Button
+                onClick={() => setMenuOpen(3)}
+                size="icon"
+                className="bg-transparent hover:bg-transparent"
+              >
                 <MagnifyingGlassIcon className="h-6 w-6" />
               </Button>
-              <Button size="icon" className="bg-transparent">
+              <Button
+                onClick={() => setMenuOpen(2)}
+                size="icon"
+                className="bg-transparent hover:bg-transparent"
+              >
                 <Bars3Icon className="h-7 w-7" />
               </Button>
             </div>
