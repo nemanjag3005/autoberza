@@ -60,7 +60,7 @@ const Sidebar: React.FC<{ user: User | null }> = ({ user }) => {
         <Bars3Icon className="h-7 w-7" />
       </Button>
       {menuOpen == 1 ? (
-        <div className="fixed inset-0 left-0 top-0 z-[999] h-screen w-full overflow-hidden bg-white px-4 py-4">
+        <div className="fixed inset-0 left-0 top-0 z-50 h-screen w-full overflow-hidden bg-white px-4 py-4">
           <button
             onClick={() => setMenuOpen(0)}
             className="absolute right-6 top-4"

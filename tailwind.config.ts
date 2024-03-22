@@ -58,14 +58,17 @@ const config = {
       },
 
       maxWidth: {
-        "8xl": "87.5rem",
+        "8xl": "90rem",
       },
       screens: {
         inter: "900px",
         inter2: "955px",
+        inter6: "970px",
         inter3: "1070px",
         inter4: "1220px",
+        inter7: "1257px",
         inter5: "1335px",
+        inter8: "1387px",
       },
       borderRadius: {
         lg: "var(--radius)",

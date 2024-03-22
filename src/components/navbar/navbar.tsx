@@ -23,8 +23,8 @@ const Navbar: React.FC<{
   authButton: React.ReactNode;
 }> = ({ authButton }) => {
   return (
-    <div className="sticky top-0 w-full bg-white">
-      <div className="z-10 mx-auto max-w-8xl px-3  md:px-10 ">
+    <div className="sticky top-0 z-50 w-full bg-white">
+      <div className=" mx-auto max-w-8xl px-3  md:px-10 ">
         <div className="    flex flex-col py-2  md:border-b ">
           <div className="flex items-center justify-between py-1">
             <div className="flex items-center">
