@@ -18,12 +18,10 @@ import {
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "~/components/ui/navigation-menu";
-import AuthMenuMobile from "../auth/AuthMenuMobile";
-import Sidebar from "./Sidebar";
-import SearchMenuMobile from "./SearchMenuMobile";
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(0);
+const Navbar: React.FC<{
+  authButton: React.ReactNode;
+}> = ({ authButton }) => {
   return (
     <div className="sticky top-0 w-full bg-white">
       <div className="z-10 mx-auto max-w-8xl px-3  md:px-10 ">
@@ -87,42 +85,14 @@ const Navbar = () => {
                   className="w-full border-none bg-gray-200/50 px-3 py-2 text-sm outline-none placeholder:text-gray-500 group-hover:bg-gray-300/50"
                 />
               </div>
-
-              <Button className="hidden md:block" size="lg">
-                Uloguj Se
-              </Button>
+              <div className="hidden md:block">{authButton}</div>
             </div>
             <div className="flex items-center space-x-1 md:hidden">
-              <Button onClick={() => setMenuOpen(1)} size="xs">
-                Prijavi Se
-              </Button>
-              <Button
-                onClick={() => setMenuOpen(3)}
-                size="icon"
-                className="bg-transparent hover:bg-transparent"
-              >
-                <MagnifyingGlassIcon className="h-6 w-6" />
-              </Button>
-              <Button
-                onClick={() => setMenuOpen(2)}
-                size="icon"
-                className="bg-transparent hover:bg-transparent"
-              >
-                <Bars3Icon className="h-7 w-7" />
-              </Button>
+              {authButton}
             </div>
           </div>
         </div>
       </div>
-      {menuOpen == 1 ? (
-        <AuthMenuMobile menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      ) : menuOpen == 2 ? (
-        <Sidebar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      ) : menuOpen == 3 ? (
-        <SearchMenuMobile menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      ) : (
-        <></>
-      )}
     </div>
   );
 };

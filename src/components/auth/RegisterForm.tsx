@@ -62,7 +62,7 @@ const RegisterForm = ({
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="animate-in text-muted-foreground flex w-full flex-1 flex-col justify-center gap-2"
+          className="flex w-full flex-1 flex-col justify-center gap-2 text-muted-foreground animate-in"
         >
           {step == 0 ? (
             <div>
@@ -153,7 +153,7 @@ const RegisterForm = ({
                     </FormLabel>
                     <FormControl>
                       <Input
-                        type="password"
+                        type="name"
                         placeholder="Kreiraj korisničko ime..."
                         autoComplete="on"
                         {...field}
@@ -167,26 +167,26 @@ const RegisterForm = ({
                 Kreiraj nalog
               </Button>
               {success && (
-                <div className="bg-secondary/50 border-border mb-3 mt-1 rounded-md border p-3">
-                  <p className="text-muted-foreground text-center text-sm font-medium">
+                <div className="mb-3 mt-1 rounded-md border border-border bg-secondary/50 p-3">
+                  <p className="text-center text-sm font-medium text-muted-foreground">
                     {success}
                   </p>
                 </div>
               )}
               {error && (
-                <div className="bg-destructive/10 border-destructive mb-3 mt-1 rounded-md border p-3">
-                  <p className="text-destructive text-center text-sm font-medium">
+                <div className="mb-3 mt-1 rounded-md border border-destructive bg-destructive/10 p-3">
+                  <p className="text-center text-sm font-medium text-destructive">
                     {error}
                   </p>
                 </div>
               )}
               <p className="text-xs text-gray-500">
                 Kreiranjem naloga na Auto Berzi slažete se sa našim{" "}
-                <span className="text-primary hover:text-primaryDark hover:underline">
+                <span className="hover:text-primaryDark text-primary hover:underline">
                   <Link href="/">Uslovima korišćenja</Link>
                 </span>{" "}
                 i{" "}
-                <span className="text-primary hover:text-primaryDark hover:underline">
+                <span className="hover:text-primaryDark text-primary hover:underline">
                   <Link href="/">Politikom privatnosti</Link>
                 </span>
                 . Takođe se slažete da primate emailove od Obuci.rs i u svakom

@@ -7,8 +7,7 @@ import React from "react";
 import type { Provider } from "@supabase/supabase-js";
 import { FaGithub } from "react-icons/fa";
 import { createClient } from "~/utils/supabase/client";
-
-const OauthButton: React.FC<{ provider: Provider }> = ({ provider }) => {
+const OauthSignUpButton: React.FC<{ provider: Provider }> = ({ provider }) => {
   const pathname = usePathname();
   const supabase = createClient();
 
@@ -56,4 +55,4 @@ const OauthButton: React.FC<{ provider: Provider }> = ({ provider }) => {
   }
 };
 
-export default OauthButton;
+export default OauthSignUpButton;

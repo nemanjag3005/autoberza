@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/components/providers/theme-provider";
 import Navbar from "~/components/navbar/navbar";
+import AuthComponent from "~/components/navbar/AuthComponent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,7 +33,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar />
+            <Navbar authButton={<AuthComponent />} />
             {children}
           </ThemeProvider>
         </TRPCReactProvider>

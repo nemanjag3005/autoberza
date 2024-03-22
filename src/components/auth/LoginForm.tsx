@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import {
   Form,
   FormControl,
@@ -16,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FaFacebook, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "../ui/button";
+import { signIn } from "~/app/(auth)/actions";
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -31,6 +32,7 @@ const LoginForm = ({
   authPageOpen: number;
   setAuthPageOpen: Dispatch<SetStateAction<number>>;
 }) => {
+  const [error, setError] = useState<string | null>(null);
   const form = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -40,7 +42,10 @@ const LoginForm = ({
   });
 
   const onSubmit = async (data: LoginInput) => {
-    console.log(data);
+    const result = await signIn(data);
+    if (result?.error) {
+      setError(result.error);
+    }
   };
   return (
     <div className="mt-10 flex-col items-center justify-center">
@@ -80,7 +85,7 @@ const LoginForm = ({
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="animate-in text-muted-foreground flex w-full flex-1 flex-col justify-center gap-2"
+          className="flex w-full flex-1 flex-col justify-center gap-2 text-muted-foreground animate-in"
         >
           <FormField
             control={form.control}
@@ -115,11 +120,18 @@ const LoginForm = ({
           <Button size="lg" className="my-3 w-full text-base" type="submit">
             Uloguj se
           </Button>
+          {error && (
+            <div className="mb-3 mt-1 rounded-md border border-destructive bg-destructive/10 p-3">
+              <p className="text-center text-sm font-medium text-destructive">
+                {error}
+              </p>
+            </div>
+          )}
         </form>
       </Form>
       <p
         onClick={() => setAuthPageOpen(3)}
-        className="text-primary mt-1 text-sm hover:text-green-600/90 hover:underline"
+        className="mt-1 text-sm text-primary hover:text-green-600/90 hover:underline"
       >
         Zaboravio/la šifru?
       </p>

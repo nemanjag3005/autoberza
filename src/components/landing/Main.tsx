@@ -45,7 +45,7 @@ const Main = () => {
   const [sort, setSort] = useState("");
   return (
     <div className="">
-      <div className="sticky top-0 w-full px-2.5">
+      <div className=" w-full px-2.5">
         <div className="flex items-center justify-between pb-2">
           <button className="flex items-center text-xl font-bold tracking-wide">
             Aukcije <ChevronDownIcon className="ml-1 mt-1 h-3 w-3" />
