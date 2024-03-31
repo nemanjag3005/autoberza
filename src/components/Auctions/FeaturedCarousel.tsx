@@ -1,4 +1,4 @@
-import { type Auction } from "@prisma/client";
+import { Photo, type Auction } from "@prisma/client";
 import React from "react";
 import {
   Carousel,
@@ -13,8 +13,11 @@ import BidBarMini from "./BidBarMini";
 const FeaturedCarousel = ({
   featuredAuctions,
 }: {
-  featuredAuctions: Auction[];
+  featuredAuctions?: (Auction & { photos: Photo[] })[]; // Allow for undefined
 }) => {
+  if (!featuredAuctions) {
+    return <div>Loading...</div>; // or any other placeholder/loading indicator
+  }
   return (
     <div className="pl-10 pr-6">
       <Carousel className="mb-6 hidden w-full  md:block">
@@ -27,10 +30,12 @@ const FeaturedCarousel = ({
               <div className="relative col-span-5 row-span-2 h-[266px] w-full inter6:col-span-3 inter4:h-[330px]  ">
                 <Image
                   src={
-                    "https://" +
-                    auction.photos[0]?.baseUrl! +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    auction.photos[0]?.link
+                    auction.photos[0]?.baseUrl
+                      ? "https://" +
+                        auction.photos[0]?.baseUrl +
+                        "/cdn-cgi/image/width=1800,quality=70/" +
+                        auction.photos[0]?.link
+                      : ""
                   }
                   alt="Image"
                   fill
@@ -49,10 +54,12 @@ const FeaturedCarousel = ({
               <div className="relative col-span-2 h-full w-full inter6:col-span-1">
                 <Image
                   src={
-                    "https://" +
-                    auction.photos[4]?.baseUrl! +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    auction.photos[4]?.link
+                    auction.photos[4]?.baseUrl
+                      ? "https://" +
+                        auction.photos[4]?.baseUrl +
+                        "/cdn-cgi/image/width=1800,quality=70/" +
+                        auction.photos[4]?.link
+                      : ""
                   }
                   alt="Image"
                   fill
@@ -62,10 +69,12 @@ const FeaturedCarousel = ({
               <div className="relative col-span-2 h-full w-full inter6:col-span-1">
                 <Image
                   src={
-                    "https://" +
-                    auction.photos[2]?.baseUrl! +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    auction.photos[2]?.link
+                    auction.photos[2]?.baseUrl
+                      ? "https://" +
+                        auction.photos[2]?.baseUrl +
+                        "/cdn-cgi/image/width=1800,quality=70/" +
+                        auction.photos[2]?.link
+                      : ""
                   }
                   alt="Image"
                   fill
@@ -75,10 +84,12 @@ const FeaturedCarousel = ({
               <div className="relative h-full w-full">
                 <Image
                   src={
-                    "https://" +
-                    auction.photos[3]?.baseUrl! +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    auction.photos[3]?.link
+                    auction.photos[3]?.baseUrl
+                      ? "https://" +
+                        auction.photos[3]?.baseUrl +
+                        "/cdn-cgi/image/width=1800,quality=70/" +
+                        auction.photos[3]?.link
+                      : ""
                   }
                   alt="Image"
                   fill
@@ -88,10 +99,12 @@ const FeaturedCarousel = ({
               <div className="relative h-full w-full">
                 <Image
                   src={
-                    "https://" +
-                    auction.photos[1]?.baseUrl! +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    auction.photos[1]?.link
+                    auction.photos[1]?.baseUrl !== undefined
+                      ? "https://" +
+                        auction.photos[1]?.baseUrl +
+                        "/cdn-cgi/image/width=1800,quality=70/" +
+                        auction.photos[1]?.link
+                      : ""
                   }
                   alt="Image"
                   fill

@@ -24,6 +24,11 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        background2: "hsl(var(--background2))",
+        background3: "hsl(var(--background3))",
+        text1: "hsl(var(--text1))",
+        text2: "hsl(var(--text2))",
+        text3: "hsl(var(--text3))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -61,6 +66,7 @@ const config = {
         "8xl": "90rem",
       },
       screens: {
+        xs: "576px",
         inter: "900px",
         inter2: "955px",
         inter6: "970px",

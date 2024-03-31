@@ -4,26 +4,19 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const auctionsRouter = createTRPCRouter({
   fetchEndingSoon: publicProcedure.query(async ({ ctx }) => {
-    let auctions = await ctx.db.auction.findMany({
+    const auctions = await ctx.db.auction.findMany({
       orderBy: {
         auctionEnd: "asc",
       },
+      include: {
+        photos: {
+          where: {
+            type: "EXTERIOR", // Assuming 'EXTERIOR' is the correct value for exterior photos
+          },
+          take: 4, // Limit to the first 4 photos
+        },
+      },
     });
-    auctions = await Promise.all(
-      auctions.map(async (auction) => {
-        if (auction.featured) {
-          const photos = await ctx.db.photo.findMany({
-            where: {
-              auctionId: auction.id,
-              type: "EXTERIOR",
-            },
-            take: 4,
-          });
-          return { ...auction, photos };
-        }
-        return auction;
-      }),
-    );
 
     return auctions;
   }),
@@ -40,6 +33,11 @@ export const auctionsRouter = createTRPCRouter({
         },
         include: {
           photos: true, // Include all photos associated with the auction
+          model: {
+            include: {
+              make: true, // Include the model associated with the auction
+            },
+          },
         },
       });
 
@@ -60,16 +58,6 @@ export const auctionsRouter = createTRPCRouter({
       },
     });
 
-    return auctions.map((auction) => ({
-      ...auction,
-      photos: auction.photos.map((photo) => ({
-        baseUrl: photo.baseUrl,
-        id: photo.id,
-        link: photo.link,
-        width: photo.width,
-        height: photo.height,
-        type: photo.type,
-      })),
-    }));
+    return auctions;
   }),
 });

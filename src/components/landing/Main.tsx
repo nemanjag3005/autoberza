@@ -46,7 +46,7 @@ const Main = () => {
   return (
     <div className="mx-auto max-w-8xl md:mt-6">
       <FeaturedCarousel featuredAuctions={featuredAuctions.data} />
-      <div className=" sticky top-16 z-40 w-full bg-white px-2.5 md:z-auto md:block md:px-10">
+      <div className=" sticky top-16 z-40 w-full bg-background px-2.5 md:z-auto md:block md:px-10">
         <div className="flex items-center justify-between pb-2">
           <button className="flex items-center text-xl font-bold tracking-wide md:hidden">
             Aukcije <ChevronDownIcon className="ml-1 mt-1 h-3 w-3" />
@@ -67,7 +67,7 @@ const Main = () => {
           <div className="flex w-full space-x-2 px-2.5 md:mt-2 md:w-fit md:px-0">
             <YearRangeSelector />
             <Select>
-              <SelectTrigger className="text-gray-600 hover:bg-gray-100 hover:text-zinc-800">
+              <SelectTrigger className="text-text1 hover:bg-gray-100 hover:text-zinc-800">
                 <SelectValue placeholder="Menjač" />
               </SelectTrigger>
               <SelectContent>
@@ -77,7 +77,7 @@ const Main = () => {
               </SelectContent>
             </Select>
             <Select>
-              <SelectTrigger className="text-gray-600 hover:bg-gray-100 hover:text-zinc-800">
+              <SelectTrigger className="text-text1 hover:bg-gray-100 hover:text-zinc-800">
                 <SelectValue placeholder="Karoserija" />
               </SelectTrigger>
               <SelectContent>
@@ -99,7 +99,7 @@ const Main = () => {
             <span
               key={item.value}
               onClick={() => setSort(item.value)}
-              className={`cursor-pointer whitespace-nowrap hover:text-zinc-800 ${item.value == sort && "text-zinc-800 underline decoration-2 underline-offset-4 "}`}
+              className={`hover:text-text1 cursor-pointer whitespace-nowrap ${item.value == sort && "text-text1 underline decoration-2 underline-offset-4 "}`}
             >
               {item.displayName}
             </span>

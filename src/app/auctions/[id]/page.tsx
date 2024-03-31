@@ -3,7 +3,7 @@ import { api } from "~/trpc/server";
 
 export default async function AuctionPage() {
   return (
-    <main className="">
+    <main className="bg-background">
       {" "}
       <Auction />{" "}
     </main>

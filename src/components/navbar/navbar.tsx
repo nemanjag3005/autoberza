@@ -1,21 +1,14 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
-import { Button } from "../ui/button";
-import {
-  Bars3Icon,
-  ChevronDownIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/solid";
+import React from "react";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "~/components/ui/navigation-menu";
 
@@ -23,7 +16,7 @@ const Navbar: React.FC<{
   authButton: React.ReactNode;
 }> = ({ authButton }) => {
   return (
-    <div className="sticky top-0 z-50 w-full bg-white">
+    <div className="sticky top-0 z-50 w-full bg-background">
       <div className=" mx-auto max-w-8xl px-3  md:px-10 ">
         <div className="    flex flex-col py-2  md:border-b ">
           <div className="flex items-center justify-between py-1">
