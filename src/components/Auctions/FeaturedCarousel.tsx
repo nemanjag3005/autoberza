@@ -1,4 +1,4 @@
-import { Photo, type Auction } from "@prisma/client";
+import { type Photo, type Auction } from "@prisma/client";
 import React from "react";
 import {
   Carousel,

@@ -46,9 +46,11 @@ const BidBarMini = ({ auction }: { auction: Auction }) => {
       return `${timeLeft.days} dan${timeLeft.days > 1 ? "a" : ""}`;
     }
 
-    return formatDuration(timeLeft, {
-      format: ["hours", "minutes", "seconds"],
-    });
+    const hours = timeLeft.hours?.toString().padStart(2, "0") ?? "00";
+    const minutes = timeLeft.minutes?.toString().padStart(2, "0") ?? "00";
+    const seconds = timeLeft.seconds?.toString().padStart(2, "0") ?? "00";
+
+    return `${hours}:${minutes}:${seconds}`;
   };
 
   return (
