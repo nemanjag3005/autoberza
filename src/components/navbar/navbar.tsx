@@ -30,7 +30,9 @@ const Navbar: React.FC<{
               <NavigationMenu className="hidden inter:block">
                 <NavigationMenuList>
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger>Aukcije</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="text-headerLink">
+                      Aukcije
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent className="p-3">
                       <Link href="/" legacyBehavior passHref>
                         <NavigationMenuLink
@@ -57,25 +59,25 @@ const Navbar: React.FC<{
                   </NavigationMenuItem>
                 </NavigationMenuList>
               </NavigationMenu>
-              <button className="hidden whitespace-nowrap rounded-full bg-primary px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-green-600/70 hover:text-zinc-950 inter2:block">
+              <button className="hidden whitespace-nowrap rounded-full bg-primary px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-primary/80 hover:text-zinc-950 inter2:block">
                 Prodaj Auto
               </button>
-              <div className="hidden px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950 inter3:block">
+              <div className="text-headerLink hidden px-3 text-sm font-medium hover:text-zinc-950 dark:hover:text-white inter3:block">
                 <Link href="/forum">Forum</Link>
               </div>
-              <div className="hidden whitespace-nowrap px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950 inter4:block">
+              <div className="text-headerLink hidden whitespace-nowrap px-3 text-sm font-medium hover:text-zinc-950 dark:hover:text-white inter4:block">
                 <Link href="/sta-je">Šta je Auto Berza?</Link>
               </div>
-              <div className="hidden whitespace-nowrap px-3 text-sm font-medium text-zinc-800 hover:text-zinc-950 inter5:block">
+              <div className="text-headerLink hidden whitespace-nowrap px-3 text-sm font-medium hover:text-zinc-950 dark:hover:text-white inter5:block">
                 <Link href="/newsletter">Newsletter</Link>
               </div>
             </div>
             <div className="flex w-full items-center justify-end">
-              <div className="justify-left group mx-6 hidden w-full max-w-[25rem] cursor-text items-center rounded-md bg-gray-200/80 px-6 py-1 hover:bg-gray-300/90 md:flex  ">
-                <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />
+              <div className="justify-left group mx-6 hidden w-full max-w-[25rem] cursor-text items-center rounded-md bg-gray-200/80 px-6 py-1 hover:bg-gray-300/90 dark:bg-stone-800 dark:hover:bg-stone-800 md:flex  ">
+                <MagnifyingGlassIcon className="dark:text-headerLink h-5 w-5 text-gray-500" />
                 <input
                   placeholder="Pretraži automobile (npr. BMW, Audi, Fiat)"
-                  className="w-full border-none bg-gray-200/50 px-3 py-2 text-sm outline-none placeholder:text-gray-500 group-hover:bg-gray-300/50"
+                  className="dark:placeholder:text-headerLink w-full border-none bg-gray-200/50 px-3 py-2 text-sm outline-none placeholder:text-gray-500 group-hover:bg-gray-300/50 dark:bg-stone-800 dark:group-hover:bg-stone-800 dark:group-hover:placeholder:text-white"
                 />
               </div>
               <div className="hidden md:block">{authButton}</div>

@@ -42,7 +42,7 @@ const YearRangeSelector = () => {
     <Popover>
       <PopoverTrigger asChild>
         <button
-          className={`flex h-10 w-full items-center justify-between rounded-md border hover:bg-gray-100 hover:text-zinc-800 ${startYear !== 1984 || endYear !== 2025 ? "border-zinc-800 text-zinc-800" : "text-text1 border-input"} bg-background px-3 py-2 text-sm  ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1`}
+          className={`flex h-10 w-full items-center justify-between rounded-md border hover:bg-gray-100 hover:text-zinc-800 dark:hover:bg-stone-800 dark:hover:text-white ${startYear !== 1984 || endYear !== 2025 ? "border-zinc-800 text-zinc-800" : "border-input text-text1"} bg-background px-3 py-2 text-sm  ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1`}
         >
           {popoverTitle}
           <ChevronDown className="ml-1 h-4 w-4" />

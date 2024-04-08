@@ -29,6 +29,7 @@ const config = {
         text1: "hsl(var(--text1))",
         text2: "hsl(var(--text2))",
         text3: "hsl(var(--text3))",
+        headerLink: "hsl(var(--header-link))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
