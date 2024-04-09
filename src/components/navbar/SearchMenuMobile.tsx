@@ -11,7 +11,7 @@ const SearchMenuMobile: React.FC = () => {
       <Button
         onClick={() => setMenuOpen(true)}
         size="icon"
-        className="bg-transparent hover:bg-transparent"
+        className="bg-transparent hover:bg-transparent dark:text-text1"
       >
         <MagnifyingGlassIcon className="h-6 w-6" />
       </Button>

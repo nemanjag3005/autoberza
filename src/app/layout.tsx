@@ -6,6 +6,7 @@ import { TRPCReactProvider } from "~/trpc/react";
 import { ThemeProvider } from "~/components/providers/theme-provider";
 import Navbar from "~/components/navbar/navbar";
 import AuthComponent from "~/components/navbar/AuthComponent";
+import Footer from "~/components/footer/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
             <Navbar authButton={<AuthComponent />} />
 
             {children}
+            <Footer />
           </ThemeProvider>
         </TRPCReactProvider>
       </body>

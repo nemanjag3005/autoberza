@@ -22,7 +22,11 @@ const LoginButton = () => {
   return (
     <div>
       <div className="block md:hidden">
-        <Button size="xs" onClick={() => setLoginMenuOpen(true)}>
+        <Button
+          className="text-stone-800"
+          size="xs"
+          onClick={() => setLoginMenuOpen(true)}
+        >
           Prijavi Se
         </Button>
         {loginMenuOpen && (
@@ -52,7 +56,9 @@ const LoginButton = () => {
       <div className="hidden md:block">
         <Dialog>
           <DialogTrigger asChild>
-            <Button size="lg">Prijavi Se</Button>
+            <Button className="text-zinc-800" size="lg">
+              Prijavi Se
+            </Button>
           </DialogTrigger>
           <DialogContent className="max-w-[27em] px-10 pb-12">
             {authPageOpen == 0 ? (

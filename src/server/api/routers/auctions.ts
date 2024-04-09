@@ -9,12 +9,7 @@ export const auctionsRouter = createTRPCRouter({
         auctionEnd: "asc",
       },
       include: {
-        photos: {
-          where: {
-            type: "EXTERIOR", // Assuming 'EXTERIOR' is the correct value for exterior photos
-          },
-          take: 4, // Limit to the first 4 photos
-        },
+        photos: true,
       },
     });
 
@@ -49,12 +44,7 @@ export const auctionsRouter = createTRPCRouter({
         featured: true,
       },
       include: {
-        photos: {
-          where: {
-            type: "EXTERIOR", // Assuming 'EXTERIOR' is the correct value for exterior photos
-          },
-          take: 5, // Limit to the first 4 photos
-        },
+        photos: true,
       },
     });
 

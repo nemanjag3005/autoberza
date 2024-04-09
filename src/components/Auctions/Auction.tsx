@@ -74,12 +74,12 @@ const Auction = () => {
         {auction.isLoading ? (
           <></>
         ) : (
-          <div className="inter10:h-[600px] h-[250px] w-[986px] px-2.5 md:h-[372px] md:w-full md:px-10 inter2:h-[488px]">
+          <div className="h-[250px] w-[986px] px-2.5 md:h-[372px] md:w-full md:px-10 inter2:h-[488px] inter10:h-[600px]">
             <div className="grid h-full w-full grid-cols-6 grid-rows-2 gap-1 md:grid-rows-4 inter5:grid-cols-5">
               <div
                 onClick={() => {
                   setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[1] as Photo);
+                  setSelectedPhoto(photos?.EXTERIOR?.[0] as Photo);
                   setCurrentCategory("EXTERIOR");
                 }}
                 className="relative col-span-2 row-span-2 cursor-pointer md:col-span-5 md:row-span-4 inter5:col-span-3"
@@ -92,7 +92,7 @@ const Auction = () => {
                     "https://" +
                     photos?.baseUrl +
                     "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[1]?.link?.toString() ?? "")
+                    (photos?.EXTERIOR?.[0]?.link?.toString() ?? "")
                   }
                 />
                 {auction.data?.featured && (
@@ -104,7 +104,7 @@ const Auction = () => {
               <div
                 onClick={() => {
                   setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[2] as Photo);
+                  setSelectedPhoto(photos?.EXTERIOR?.[1] as Photo);
                   setCurrentCategory("EXTERIOR");
                 }}
                 className="relative cursor-pointer"
@@ -114,7 +114,7 @@ const Auction = () => {
                     "https://" +
                     photos?.baseUrl +
                     "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[2]?.link?.toString() ?? "")
+                    (photos?.EXTERIOR?.[1]?.link?.toString() ?? "")
                   }
                   alt="Image"
                   fill
@@ -127,10 +127,30 @@ const Auction = () => {
               <div
                 onClick={() => {
                   setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[3] as Photo);
+                  setSelectedPhoto(photos?.EXTERIOR?.[2] as Photo);
                   setCurrentCategory("EXTERIOR");
                 }}
                 className="relative cursor-pointer md:hidden inter5:block"
+              >
+                <Image
+                  src={
+                    "https://" +
+                    photos?.baseUrl +
+                    "/cdn-cgi/image/width=1800,quality=70/" +
+                    (photos?.EXTERIOR?.[2]?.link?.toString() ?? "")
+                  }
+                  alt="Image"
+                  fill
+                  className=" object-cover inter5:rounded-tr-lg"
+                />
+              </div>
+              <div
+                onClick={() => {
+                  setPhotosMenuOpen(true);
+                  setSelectedPhoto(photos?.EXTERIOR?.[3] as Photo);
+                  setCurrentCategory("EXTERIOR");
+                }}
+                className="relative hidden cursor-pointer md:block"
               >
                 <Image
                   src={
@@ -141,33 +161,13 @@ const Auction = () => {
                   }
                   alt="Image"
                   fill
-                  className=" object-cover inter5:rounded-tr-lg"
-                />
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[4] as Photo);
-                  setCurrentCategory("EXTERIOR");
-                }}
-                className="relative hidden cursor-pointer md:block"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[4]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
                   className=" object-cover"
                 />
               </div>
               <div
                 onClick={() => {
                   setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[5] as Photo);
+                  setSelectedPhoto(photos?.EXTERIOR?.[4] as Photo);
                   setCurrentCategory("EXTERIOR");
                 }}
                 className="relative hidden cursor-pointer inter5:block"
@@ -177,7 +177,7 @@ const Auction = () => {
                     "https://" +
                     photos?.baseUrl +
                     "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[5]?.link?.toString() ?? "")
+                    (photos?.EXTERIOR?.[4]?.link?.toString() ?? "")
                   }
                   alt="Image"
                   fill
@@ -306,7 +306,7 @@ const Auction = () => {
                   className=" rounded-br-lg object-cover brightness-[.25]"
                 />
                 <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 transform px-2 text-center text-lg font-medium  text-white ">
-                  Sve slike (76)
+                  Sve slike ({auction.data.photos.length})
                 </span>
               </div>
             </div>
@@ -425,7 +425,7 @@ const Auction = () => {
             </div>
           </div>
         </div>
-        <div className="inter9:flex inter10:max-w-[280px] hidden w-full max-w-[238px] pl-6 inter5:max-w-[456px]">
+        <div className="hidden w-full max-w-[238px] pl-6 inter9:flex inter10:max-w-[280px] inter5:max-w-[456px]">
           <h3 className="text-lg font-semibold">Uskoro gotove</h3>
         </div>
       </div>

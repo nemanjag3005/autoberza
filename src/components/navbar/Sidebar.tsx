@@ -55,7 +55,7 @@ const Sidebar: React.FC<{ user: User | null }> = ({ user }) => {
       <Button
         onClick={() => setMenuOpen(1)}
         size="icon"
-        className="bg-transparent hover:bg-transparent"
+        className="bg-transparent hover:bg-transparent dark:text-text1"
       >
         <Bars3Icon className="h-7 w-7" />
       </Button>

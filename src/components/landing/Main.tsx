@@ -44,7 +44,7 @@ const Main = () => {
   const featuredAuctions = api.auctions.fetchFeatured.useQuery();
 
   return (
-    <div className="mx-auto max-w-8xl md:mt-3">
+    <div className="mx-auto mb-10 max-w-8xl md:mt-3">
       <FeaturedCarousel featuredAuctions={featuredAuctions.data} />
       <div className=" sticky top-16 z-40 w-full bg-background px-2.5 md:z-auto md:block md:px-10">
         <div className="flex items-center justify-between pb-2">
@@ -54,7 +54,9 @@ const Main = () => {
 
           <div className="md:hidden">
             <Link href="/prodaj-auto">
-              <Button size="xs">Prodaj Auto</Button>
+              <Button className="text-stone-800" size="xs">
+                Prodaj Auto
+              </Button>
             </Link>
           </div>
         </div>

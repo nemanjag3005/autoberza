@@ -6,15 +6,34 @@ import FeaturedTag from "./FeaturedTag";
 import { StarIcon } from "@heroicons/react/24/outline";
 import BidBarMini from "./BidBarMini";
 import Link from "next/link";
+import type { PhotosGroupedByType } from "./Auction";
 
 const AuctionCard = ({
   auction,
 }: {
   auction?: Auction & { photos: Photo[] };
 }) => {
+  const photos = React.useMemo(() => {
+    if (auction?.photos) {
+      const photosGroupedByType: PhotosGroupedByType = {
+        baseUrl: auction.photos?.[0]?.baseUrl ?? "",
+      };
+
+      auction.photos?.forEach((photo) => {
+        const key = photo.type; // Add type annotation to key
+        if (!photosGroupedByType[key]) {
+          photosGroupedByType[key] = [];
+        }
+        (photosGroupedByType[key] as Photo[]).push(photo);
+      });
+
+      return photosGroupedByType;
+    }
+  }, [auction?.photos]);
   if (!auction) {
     return <div>Loading...</div>; // or any other placeholder/loading indicator
   }
+
   return (
     <div className="group">
       <Link href={`/auctions/${auction.id}`}>
@@ -38,9 +57,9 @@ const AuctionCard = ({
                     <Image
                       src={
                         "https://" +
-                        auction.photos[0]?.baseUrl +
+                        auction.photos[1]?.baseUrl +
                         "/cdn-cgi/image/width=1800,quality=70/" +
-                        auction.photos[0]?.link
+                        (photos?.EXTERIOR?.[1]?.link?.toString() ?? "")
                       }
                       alt="Image"
                       fill
@@ -53,7 +72,7 @@ const AuctionCard = ({
                         "https://" +
                         auction.photos[2]?.baseUrl +
                         "/cdn-cgi/image/width=1800,quality=70/" +
-                        auction.photos[2]?.link
+                        (photos?.EXTERIOR?.[2]?.link?.toString() ?? "")
                       }
                       alt="Image"
                       fill
@@ -66,7 +85,7 @@ const AuctionCard = ({
                         "https://" +
                         auction.photos[3]?.baseUrl +
                         "/cdn-cgi/image/width=1800,quality=70/" +
-                        auction.photos[3]?.link
+                        (photos?.EXTERIOR?.[3]?.link?.toString() ?? "")
                       }
                       alt="Image"
                       fill
@@ -108,16 +127,16 @@ const AuctionCard = ({
 
       <div className="mt-3 flex items-center justify-between">
         <Link href={`/auctions/${auction.id}`}>
-          <h1 className="text-text1 font-bold hover:underline">
+          <h1 className="font-bold text-text1 hover:underline">
             {auction.title}
           </h1>
         </Link>
         <button>
-          <StarIcon className="text-text1 hidden h-5 w-5 transition-all duration-300 ease-in-out hover:text-yellow-400 group-hover:block" />
+          <StarIcon className="hidden h-5 w-5 text-text1 transition-all duration-300 ease-in-out hover:text-yellow-400 group-hover:block" />
         </button>
       </div>
-      <h4 className="text-text1 text-[15px]">{auction.subTitle}</h4>
-      <p className="text-[15px] text-gray-500">{auction.location}</p>
+      <h4 className="text-[15px] text-text1">{auction.subTitle}</h4>
+      <p className="text-[15px] text-stone-500">{auction.location}</p>
     </div>
   );
 };
