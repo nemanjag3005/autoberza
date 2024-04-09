@@ -74,247 +74,212 @@ const Auction = () => {
         {auction.isLoading ? (
           <></>
         ) : (
-          <div className="h-[250px] w-[986px] px-2.5 md:h-[372px] md:w-full md:px-10 inter2:h-[488px] inter10:h-[600px]">
-            <div className="grid h-full w-full grid-cols-6 grid-rows-2 gap-1 md:grid-rows-4 inter5:grid-cols-5">
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[0] as Photo);
-                  setCurrentCategory("EXTERIOR");
-                }}
-                className="relative col-span-2 row-span-2 cursor-pointer md:col-span-5 md:row-span-4 inter5:col-span-3"
-              >
-                <Image
-                  alt={auction.data ? auction.data?.title : "Slika automobila"}
-                  fill
-                  className="rounded-l-lg object-cover"
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[0]?.link?.toString() ?? "")
-                  }
-                />
-                {auction.data?.featured && (
-                  <div className="absolute left-2 top-1">
-                    <FeaturedTag />
-                  </div>
-                )}
+          <div className="grid h-[250px] w-[986px] grid-cols-3 gap-1 px-2.5 md:flex md:h-[372px] md:w-full md:px-10 inter2:h-[488px] inter10:h-[600px]">
+            <div
+              onClick={() => {
+                setPhotosMenuOpen(true);
+                setSelectedPhoto(photos?.EXTERIOR?.[0] as Photo);
+                setCurrentCategory("EXTERIOR");
+              }}
+              className="relative h-full w-full cursor-pointer"
+            >
+              <Image
+                alt={auction.data ? auction.data?.title : "Slika automobila"}
+                fill
+                className="rounded-l-lg object-cover"
+                src={
+                  "https://" +
+                  photos?.baseUrl +
+                  "/cdn-cgi/image/width=1800,quality=70/" +
+                  (photos?.EXTERIOR?.[0]?.link?.toString() ?? "")
+                }
+              />
+              {auction.data?.featured && (
+                <div className="absolute left-2 top-1">
+                  <FeaturedTag />
+                </div>
+              )}
+            </div>
+            <div className="col-span-2 grid flex-shrink-0 grid-cols-2 gap-1 md:flex md:w-[139px] md:flex-col inter2:w-[184px] inter10:w-[226px] inter5:w-[456px]">
+              <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-1 md:grid-cols-1 inter5:grid-cols-2">
+                <div
+                  onClick={() => {
+                    setPhotosMenuOpen(true);
+                    setSelectedPhoto(photos?.EXTERIOR?.[1] as Photo);
+                    setCurrentCategory("EXTERIOR");
+                  }}
+                  className="relative cursor-pointer"
+                >
+                  <Image
+                    src={
+                      "https://" +
+                      photos?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.EXTERIOR?.[1]?.link?.toString() ?? "")
+                    }
+                    alt="Image"
+                    fill
+                    className="object-cover md:rounded-tr-lg inter5:rounded-none"
+                  />
+                  <span className="absolute left-1 top-1 rounded-md bg-[#262626]  p-1 text-xs font-medium  text-white brightness-90  backdrop:blur-sm">
+                    Eksterijer (24)
+                  </span>
+                </div>
+                <div
+                  onClick={() => {
+                    setPhotosMenuOpen(true);
+                    setSelectedPhoto(photos?.EXTERIOR?.[2] as Photo);
+                    setCurrentCategory("EXTERIOR");
+                  }}
+                  className="relative cursor-pointer md:hidden inter5:block"
+                >
+                  <Image
+                    src={
+                      "https://" +
+                      photos?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.EXTERIOR?.[2]?.link?.toString() ?? "")
+                    }
+                    alt="Image"
+                    fill
+                    className=" object-cover inter5:rounded-tr-lg"
+                  />
+                </div>
+                <div
+                  onClick={() => {
+                    setPhotosMenuOpen(true);
+                    setSelectedPhoto(photos?.EXTERIOR?.[3] as Photo);
+                    setCurrentCategory("EXTERIOR");
+                  }}
+                  className="relative cursor-pointer md:hidden inter5:block"
+                >
+                  <Image
+                    src={
+                      "https://" +
+                      photos?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.EXTERIOR?.[3]?.link?.toString() ?? "")
+                    }
+                    alt="Image"
+                    fill
+                    className=" object-cover"
+                  />
+                </div>
+                <div
+                  onClick={() => {
+                    setPhotosMenuOpen(true);
+                    setSelectedPhoto(photos?.EXTERIOR?.[4] as Photo);
+                    setCurrentCategory("EXTERIOR");
+                  }}
+                  className="relative cursor-pointer "
+                >
+                  <Image
+                    src={
+                      "https://" +
+                      photos?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.EXTERIOR?.[4]?.link?.toString() ?? "")
+                    }
+                    alt="Image"
+                    fill
+                    className=" object-cover"
+                  />
+                </div>
               </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[1] as Photo);
-                  setCurrentCategory("EXTERIOR");
-                }}
-                className="relative cursor-pointer"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[1]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" object-cover md:rounded-tr-lg inter5:rounded-none"
-                />
-                <span className="absolute left-1 top-1 rounded-md bg-[#262626]  p-1 text-xs font-medium  text-white brightness-90  backdrop:blur-sm">
-                  Eksterijer (24)
-                </span>
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[2] as Photo);
-                  setCurrentCategory("EXTERIOR");
-                }}
-                className="relative cursor-pointer md:hidden inter5:block"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[2]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" object-cover inter5:rounded-tr-lg"
-                />
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[3] as Photo);
-                  setCurrentCategory("EXTERIOR");
-                }}
-                className="relative hidden cursor-pointer md:block"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[3]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" object-cover"
-                />
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[4] as Photo);
-                  setCurrentCategory("EXTERIOR");
-                }}
-                className="relative hidden cursor-pointer inter5:block"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[4]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" object-cover"
-                />
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.INTERIOR?.[0] as Photo);
-                  setCurrentCategory("INTERIOR");
-                }}
-                className="relative cursor-pointer"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.INTERIOR?.[0]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" object-cover"
-                />
-                <span className="absolute left-1 top-1 rounded-md bg-[#262626]  p-1 text-xs font-medium  text-white brightness-90  backdrop:blur-sm">
-                  Enterijer (21)
-                </span>
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.INTERIOR?.[1] as Photo);
-                  setCurrentCategory("INTERIOR");
-                }}
-                className="relative cursor-pointer md:hidden inter5:block"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.INTERIOR?.[1]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" rounded-tr-lg object-cover inter5:rounded-none"
-                />
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[4] as Photo);
-                  setCurrentCategory("EXTERIOR");
-                }}
-                className="relative cursor-pointer md:hidden "
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[4]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" object-cover"
-                />
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.EXTERIOR?.[5] as Photo);
-                  setCurrentCategory("EXTERIOR");
-                }}
-                className="relative cursor-pointer md:hidden"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.EXTERIOR?.[5]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" object-cover"
-                />
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setSelectedPhoto(photos?.INTERIOR?.[2] as Photo);
-                  setCurrentCategory("INTERIOR");
-                }}
-                className="relative cursor-pointer md:hidden inter5:block"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.INTERIOR?.[2]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" object-cover"
-                />
-              </div>
-              <div
-                onClick={() => {
-                  setPhotosMenuOpen(true);
-                  setAllPhotosOpen(true);
-                }}
-                className="relative cursor-pointer"
-              >
-                <Image
-                  src={
-                    "https://" +
-                    photos?.baseUrl +
-                    "/cdn-cgi/image/width=1800,quality=70/" +
-                    (photos?.INTERIOR?.[3]?.link?.toString() ?? "")
-                  }
-                  alt="Image"
-                  fill
-                  className=" rounded-br-lg object-cover brightness-[.25]"
-                />
-                <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 transform px-2 text-center text-lg font-medium  text-white ">
-                  Sve slike ({auction.data.photos.length})
-                </span>
+              <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-1 md:grid-cols-1 inter5:grid-cols-2">
+                <div
+                  onClick={() => {
+                    setPhotosMenuOpen(true);
+                    setSelectedPhoto(photos?.INTERIOR?.[0] as Photo);
+                    setCurrentCategory("INTERIOR");
+                  }}
+                  className="relative cursor-pointer"
+                >
+                  <Image
+                    src={
+                      "https://" +
+                      photos?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.INTERIOR?.[0]?.link?.toString() ?? "")
+                    }
+                    alt="Image"
+                    fill
+                    className=" object-cover"
+                  />
+                  <span className="absolute left-1 top-1 rounded-md bg-[#262626]  p-1 text-xs font-medium  text-white brightness-90  backdrop:blur-sm">
+                    Enterijer (21)
+                  </span>
+                </div>
+                <div
+                  onClick={() => {
+                    setPhotosMenuOpen(true);
+                    setSelectedPhoto(photos?.INTERIOR?.[1] as Photo);
+                    setCurrentCategory("INTERIOR");
+                  }}
+                  className="relative cursor-pointer md:hidden inter5:block"
+                >
+                  <Image
+                    src={
+                      "https://" +
+                      photos?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.INTERIOR?.[1]?.link?.toString() ?? "")
+                    }
+                    alt="Image"
+                    fill
+                    className=" rounded-tr-lg object-cover inter5:rounded-none"
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setPhotosMenuOpen(true);
+                    setSelectedPhoto(photos?.INTERIOR?.[2] as Photo);
+                    setCurrentCategory("INTERIOR");
+                  }}
+                  className="relative cursor-pointer md:hidden inter5:block"
+                >
+                  <Image
+                    src={
+                      "https://" +
+                      photos?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.INTERIOR?.[2]?.link?.toString() ?? "")
+                    }
+                    alt="Image"
+                    fill
+                    className=" object-cover"
+                  />
+                </div>
+                <div
+                  onClick={() => {
+                    setPhotosMenuOpen(true);
+                    setAllPhotosOpen(true);
+                  }}
+                  className="relative cursor-pointer"
+                >
+                  <Image
+                    src={
+                      "https://" +
+                      photos?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.INTERIOR?.[3]?.link?.toString() ?? "")
+                    }
+                    alt="Image"
+                    fill
+                    className=" rounded-br-lg object-cover brightness-[.25]"
+                  />
+                  <span className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 transform px-2 text-center text-lg font-medium  text-white ">
+                    Sve slike ({auction.data.photos.length})
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         )}
       </div>
-      <div className="flex px-2.5 text-text1 md:px-10">
-        <div className="w-full">
+      <div className="flex px-2.5 text-text1 md:px-10 ">
+        <div className="w-full ">
           <div className=" sticky top-16 z-40 hidden w-full bg-background  md:block">
             <BidBar
               auctionEnd={auction.data?.auctionEnd}
@@ -425,7 +390,7 @@ const Auction = () => {
             </div>
           </div>
         </div>
-        <div className="hidden w-full max-w-[238px] pl-6 inter9:flex inter10:max-w-[280px] inter5:max-w-[456px]">
+        <div className="hidden w-full max-w-[238px] flex-shrink-0 pl-6 inter9:flex inter10:max-w-[280px] inter5:max-w-[456px]">
           <h3 className="text-lg font-semibold">Uskoro gotove</h3>
         </div>
       </div>

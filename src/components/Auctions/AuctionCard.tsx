@@ -43,7 +43,12 @@ const AuctionCard = ({
               <div className="md:hidden">
                 <AspectRatio ratio={16 / 8}>
                   <Image
-                    src={auction.mainPhoto ? auction.mainPhoto : ""}
+                    src={
+                      "https://" +
+                      auction.photos[0]?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.EXTERIOR?.[0]?.link?.toString() ?? "")
+                    }
                     alt="Image"
                     fill
                     className="rounded-t-sm object-cover"
@@ -97,7 +102,12 @@ const AuctionCard = ({
               <div className="hidden md:block ">
                 <AspectRatio ratio={16 / 10}>
                   <Image
-                    src={auction.mainPhoto ? auction.mainPhoto : ""}
+                    src={
+                      "https://" +
+                      auction.photos[0]?.baseUrl +
+                      "/cdn-cgi/image/width=1800,quality=70/" +
+                      (photos?.EXTERIOR?.[0]?.link?.toString() ?? "")
+                    }
                     alt="Image"
                     fill
                     className="rounded-sm object-cover group-hover:brightness-90"
@@ -108,7 +118,12 @@ const AuctionCard = ({
           ) : (
             <AspectRatio ratio={16 / 10}>
               <Image
-                src={auction.mainPhoto ? auction.mainPhoto : ""}
+                src={
+                  "https://" +
+                  auction.photos[0]?.baseUrl +
+                  "/cdn-cgi/image/width=1800,quality=70/" +
+                  (photos?.EXTERIOR?.[0]?.link?.toString() ?? "")
+                }
                 alt="Image"
                 fill
                 className="rounded-sm object-cover group-hover:brightness-90"
