@@ -7,7 +7,7 @@ await import("./src/env.js");
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ["media-r2.carsandbids.com"],
+    domains: ["media-r2.carsandbids.com", "media.carsandbids.com"],
   },
 };
 

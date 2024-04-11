@@ -26,6 +26,7 @@ import "dayjs/locale/sr";
 import relativeTime from "dayjs/plugin/relativeTime";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import AuctionCard from "./AuctionCard";
+import Link from "next/link";
 export interface PhotosGroupedByType {
   baseUrl: string;
   // Utilize PhotoType to type keys and specify that values will be arrays of Photo objects
@@ -350,13 +351,19 @@ const Auction = () => {
               Proizvođač
             </div>
             <div className="col-span-2 border-y-[1px] border-background2 px-4 py-2 underline md:col-span-3 md:border-r md:border-t-0">
-              {auction.data?.model.make.name}
+              <Link href={`/search/${auction.data.model.make.name}`}>
+                {auction.data.model.make.name}
+              </Link>
             </div>
             <div className="border-b-[1px] border-r-[1px] border-background2 py-2 font-semibold md:col-span-2 md:px-4">
               Model
             </div>
             <div className="col-span-2 border-b-[1px] border-background2 px-4 py-2 underline md:col-span-3">
-              {auction.data?.model.name}
+              <Link
+                href={`/search/${auction.data.model.make.name}/${auction.data.model.name}`}
+              >
+                {auction.data?.model.name}
+              </Link>
             </div>
             <div className="border-b-[1px] border-r-[1px] border-background2 py-2 font-semibold md:col-span-2 md:px-4">
               Kilometraža
