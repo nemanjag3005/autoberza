@@ -15,6 +15,26 @@ export const auctionsRouter = createTRPCRouter({
 
     return auctions;
   }),
+  fetchAllExceptOne: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const auctions = await ctx.db.auction.findMany({
+        where: {
+          NOT: {
+            id: input.id,
+          },
+        },
+        include: {
+          photos: true, // Include all photos associated with each auction
+        },
+      });
+
+      return auctions;
+    }),
   fetchAuction: publicProcedure
     .input(
       z.object({
