@@ -49,7 +49,7 @@ const BidBarMini = ({ auction }: { auction: Auction }) => {
   };
 
   return (
-    <div className="absolute bottom-2 left-2 flex items-center justify-between rounded-md bg-[#262626] px-2 py-1 text-sm font-medium">
+    <div className="absolute bottom-2 left-2 z-10 flex items-center justify-between rounded-md bg-[#262626] px-2 py-1 text-sm font-medium">
       <div className="flex items-center">
         {timeLeft && <ClockIcon className="h-3 w-3 text-gray-400" />}
         <span className="ml-1 text-white">{formatTimeLeft()}</span>
